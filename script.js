@@ -1,4 +1,11 @@
+const library = document.querySelector(".library-display")
+const addButton = document.querySelector(".add-book")
 
+addButton.addEventListener("click", ()=>{
+    let newCard = document.createElement("article")
+    newCard.className = "book-card"
+    library.appendChild(newCard)
+})
 const myLibrary = [];
 
 function Book(title,author,pages) {
