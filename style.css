@@ -1,0 +1,32 @@
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background-library: rgb(186, 210, 219);
+    --padding: 2em;
+
+}
+
+body{
+    margin:0;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+
+.library-display{
+    height: 100vh;
+    background: var(--background-library);
+    padding: var(--padding);
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: var(--padding);
+    
+}
+
+.book-card {
+    background-color: rgb(224, 208, 208);
+    min-height: 25%;
+    height:max-content;
+}
