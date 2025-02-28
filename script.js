@@ -20,13 +20,17 @@ closeAddBook.addEventListener("click", (event)=>{
     const bookAuthor = document.querySelector("#book-author")
     const bookPages = document.querySelector("#book-pages")
 
- 
+    if(bookTitle.value!="" && bookAuthor.value!="" && bookPages.value!=""){
+        let newCard = document.createElement("article")
+        newCard.className = "book-card"
+        newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
+            <div class="card-content author ">${bookAuthor.value}</div>
+            <div class="card-content pages">${bookPages.value}</div>`
+        library.appendChild(newCard)
+        modal.close()
+    }
 
-    let newCard = document.createElement("article")
-    newCard.className = "book-card"
-    newCard.innerHTML=bookTitle.value
-    library.appendChild(newCard)
-    modal.close()
+    
 })
 
 cancelAddBook.addEventListener("click", ()=>{
