@@ -5,11 +5,14 @@ const addButton = document.querySelector(".add-book")
 const closeAddBook = document.querySelector(".close-add-book")
 const cancelAddBook = document.querySelector(".cancel-add-book")
 
+let bookIdCounter = 0;
 
 function Book(title,author,pages) {
     this.Title = title;
     this.Author = author;
     this.Pages = pages;
+    this.Id = ++bookIdCounter;
+
 }
 
 function addBookToLibrary(title,author,pages){
@@ -30,16 +33,34 @@ closeAddBook.addEventListener("click", (event)=>{
     const bookAuthor = document.querySelector("#book-author")
     const bookPages = document.querySelector("#book-pages")
 
-    
+    //If the form has values create book card
     if(bookTitle.value!="" && bookAuthor.value!="" && bookPages.value!=""){
+        
+        //Add the book to the myLibrary array and DOM
         addBookToLibrary(bookTitle.value,bookAuthor.value,bookPages.value)
+        const bookId = bookIdCounter
         let newCard = document.createElement("article")
-        newCard.className = "book-card"
+        newCard.dataset.bookId = bookId
+        newCard.className = `book-card ${bookIdCounter}`
         newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
             <div class="card-content author ">${bookAuthor.value}</div>
-            <div class="card-content pages">${bookPages.value}</div>`
+            <div class="card-content pages">${bookPages.value}</div>
+            <button class="erase-card-btn ${bookIdCounter}">Erase </button>`
+
+        
         library.appendChild(newCard)
         modal.close()
+
+        let eraseButon = newCard.querySelector(`.erase-card-btn`)
+        eraseButon.addEventListener("click",()=>{
+            library.removeChild(newCard)
+            
+            //Find index of book being removed and remove it from myLibrary Array
+            const bookIndex = myLibrary.findIndex((book)=> book.Id === bookId)
+            myLibrary.splice(bookIndex,1)
+            
+
+        })
     }
 
     
