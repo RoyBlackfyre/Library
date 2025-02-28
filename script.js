@@ -49,6 +49,11 @@ closeAddBook.addEventListener("click", (event)=>{
 
         
         library.appendChild(newCard)
+        
+        //Manually clear the form datafields and close it
+        bookTitle.value = null
+        bookAuthor.value = null
+        bookPages.value = null
         modal.close()
 
         let eraseButon = newCard.querySelector(`.erase-card-btn`)

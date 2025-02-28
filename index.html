@@ -11,15 +11,15 @@
 
 <body>
     <dialog id="modal">
-        <form>
+        <form action="post">
             <label for="book-title">Title: </label>
             <input id="book-title" name="book-title" type="text" required>
             <label for="book-author">Author: </label>
             <input id="book-author" name="book-author" type="text" required>
             <label for="book-pages">Pages: </label>
-            <input id="book-pages" name="book-pages" type="text">
-            <button type="submit" class="close-add-book">Input</button>
-            <button type="button" class="cancel-add-book">Cancel</button>
+            <input id="book-pages" name="book-pages" type="number" min="1">
+            <button type="submit" class="close-add-book" aria-label="Add book to library">Add Book</button>
+            <button type="button" class="cancel-add-book" aria-label="Cancel adding book">Cancel</button>
         </form>
     </dialog>
     <div class="library-display">
