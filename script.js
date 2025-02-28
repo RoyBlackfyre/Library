@@ -6,15 +6,25 @@ const closeAddBook = document.querySelector(".close-add-book")
 const cancelAddBook = document.querySelector(".cancel-add-book")
 
 
+
 const myLibrary = [];
 
 addButton.addEventListener("click", ()=>{
     modal.showModal()
 })
 
-closeAddBook.addEventListener("click", ()=>{
+closeAddBook.addEventListener("click", (event)=>{
+
+    event.preventDefault()
+    const bookTitle = document.querySelector("#book-title")
+    const bookAuthor = document.querySelector("#book-author")
+    const bookPages = document.querySelector("#book-pages")
+
+ 
+
     let newCard = document.createElement("article")
     newCard.className = "book-card"
+    newCard.innerHTML=bookTitle.value
     library.appendChild(newCard)
     modal.close()
 })
@@ -22,7 +32,6 @@ closeAddBook.addEventListener("click", ()=>{
 cancelAddBook.addEventListener("click", ()=>{
     modal.close()
 })
-
 
 
 function Book(title,author,pages) {

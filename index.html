@@ -12,10 +12,13 @@
 <body>
     <dialog id="modal">
         <form>
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <button type="button" class="close-add-book">Input</button>
+            <label for="book-title">Title: </label>
+            <input id="book-title" name="book-title" type="text" required>
+            <label for="book-title">Author: </label>
+            <input id="book-author" name="book-author" type="text" required>
+            <label for="book-title">Pages: </label>
+            <input id="book-pages" name="book-pages" type="text">
+            <button type="submit" class="close-add-book">Input</button>
             <button type="button" class="cancel-add-book">Cancel</button>
         </form>
     </dialog>
