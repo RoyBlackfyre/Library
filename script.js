@@ -1,12 +1,23 @@
+
+const modal = document.querySelector("#modal")
 const library = document.querySelector(".library-display")
 const addButton = document.querySelector(".add-book")
+const closeAddBook = document.querySelector(".close-add-book")
+
+const myLibrary = [];
 
 addButton.addEventListener("click", ()=>{
+    modal.show()
+})
+
+closeAddBook.addEventListener("click", ()=>{
     let newCard = document.createElement("article")
     newCard.className = "book-card"
     library.appendChild(newCard)
+    modal.close()
 })
-const myLibrary = [];
+
+
 
 function Book(title,author,pages) {
     this.Title = title;

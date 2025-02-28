@@ -16,7 +16,7 @@ body{
 }
 
 .library-display{
-    height: 100vh;
+    min-height: 100vh;
     background: var(--background-library);
     padding: var(--padding);
     display:grid;
