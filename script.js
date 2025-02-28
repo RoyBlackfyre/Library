@@ -3,17 +3,23 @@ const modal = document.querySelector("#modal")
 const library = document.querySelector(".library-display")
 const addButton = document.querySelector(".add-book")
 const closeAddBook = document.querySelector(".close-add-book")
+const cancelAddBook = document.querySelector(".cancel-add-book")
+
 
 const myLibrary = [];
 
 addButton.addEventListener("click", ()=>{
-    modal.show()
+    modal.showModal()
 })
 
 closeAddBook.addEventListener("click", ()=>{
     let newCard = document.createElement("article")
     newCard.className = "book-card"
     library.appendChild(newCard)
+    modal.close()
+})
+
+cancelAddBook.addEventListener("click", ()=>{
     modal.close()
 })
 
