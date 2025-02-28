@@ -10,7 +10,14 @@
 </head>
 
 <body>
-    <dialog id="modal">
+    
+    <div class="library-display">
+        
+    </div>
+    <div class="right-side">
+        <button class="add-book">New</button>
+    </div>
+    <dialog id="modalAdd">
         <form action="post">
             <label for="book-title">Title: </label>
             <input id="book-title" name="book-title" type="text" required>
@@ -22,13 +29,15 @@
             <button type="button" class="cancel-add-book" aria-label="Cancel adding book">Cancel</button>
         </form>
     </dialog>
-    <div class="library-display">
-        
-    </div>
-    <div class="right-side">
-        <button class="add-book">New</button>
-    </div>
 
+    <dialog id="modalErase">
+        <form action="">
+            <label for="erase">Are you sure you want to erase the book?</label>
+            <button type="button" id="erase">Yes</button>
+            <button type="button" id="notErase">No</button>
+
+        </form>
+    </dialog>
 </body>
 
 </html>

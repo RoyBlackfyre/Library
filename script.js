@@ -1,5 +1,6 @@
 
-const modal = document.querySelector("#modal")
+const modalAdd = document.querySelector("#modalAdd")
+const modalErase = document.querySelector("#modalErase")
 const library = document.querySelector(".library-display")
 const addButton = document.querySelector(".add-book")
 const closeAddBook = document.querySelector(".close-add-book")
@@ -23,7 +24,7 @@ function addBookToLibrary(title,author,pages){
 const myLibrary = [];
 
 addButton.addEventListener("click", ()=>{
-    modal.showModal()
+    modalAdd.showModal()
 })
 
 closeAddBook.addEventListener("click", (event)=>{
@@ -41,11 +42,11 @@ closeAddBook.addEventListener("click", (event)=>{
         const bookId = bookIdCounter
         let newCard = document.createElement("article")
         newCard.dataset.bookId = bookId
-        newCard.className = `book-card ${bookIdCounter}`
+        newCard.className = `book-card`
         newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
             <div class="card-content author ">${bookAuthor.value}</div>
             <div class="card-content pages">${bookPages.value}</div>
-            <button class="erase-card-btn ${bookIdCounter}">Erase </button>`
+            <button class="erase-card-btn">Erase </button>`
 
         
         library.appendChild(newCard)
@@ -54,15 +55,26 @@ closeAddBook.addEventListener("click", (event)=>{
         bookTitle.value = null
         bookAuthor.value = null
         bookPages.value = null
-        modal.close()
+        modalAdd.close()
 
         let eraseButon = newCard.querySelector(`.erase-card-btn`)
         eraseButon.addEventListener("click",()=>{
-            library.removeChild(newCard)
             
-            //Find index of book being removed and remove it from myLibrary Array
-            const bookIndex = myLibrary.findIndex((book)=> book.Id === bookId)
-            myLibrary.splice(bookIndex,1)
+            modalErase.showModal()
+            let eraseConfirm = modalErase.querySelector("#erase")
+            eraseConfirm.addEventListener("click",()=>{
+                library.removeChild(newCard)
+
+                //Find index of book being removed and remove it from myLibrary Array
+                const bookIndex = myLibrary.findIndex((book)=> book.Id === bookId)
+                myLibrary.splice(bookIndex,1)
+                modalErase.close()
+            })
+            let eraseCancel = modalErase.querySelector("#notErase")
+            eraseCancel.addEventListener("click",()=>{
+                modalErase.close()
+            })
+            
             
 
         })
@@ -72,7 +84,7 @@ closeAddBook.addEventListener("click", (event)=>{
 })
 
 cancelAddBook.addEventListener("click", ()=>{
-    modal.close()
+    modalAdd.close()
 })
 
 
