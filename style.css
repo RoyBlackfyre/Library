@@ -6,17 +6,23 @@
 :root {
     --background-library: rgb(186, 210, 219);
     --padding: 2em;
-
+    --menuColor: #eeeadf;
+    --bookCard: #e4dedb;
+    --button: #5391ee;
 }
 
 body{
     margin:0;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr;
 }
 
-#modal::backdrop{
-    background-color: rgb(0,0,0,.55);
+#modalAdd::backdrop{
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+#modalErase::backdrop{
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
 .library-display{
@@ -29,9 +35,45 @@ body{
     
 }
 
+.options button {
+    background-color: var(--button);
+    color:var(--menuColor);
+    font-weight: bold;
+    border-radius:18px;
+    font-size:1em;
+    padding: .5em 2em .5em 2em;
+
+}
+.options {
+    display:flex;
+    flex-direction: column;
+    padding:2em;
+    background-color: var(--menuColor);
+}
+
 .book-card {
-    background-color: rgb(224, 208, 208);
+    background-color: var(--bookCard);
     min-height: 250px;
-    max-height: 500px;
+    max-height: 400px;
     height: 100%;
+}
+
+.erase-card-btn{
+    background: url(assets/delete.png) no-repeat center center;
+    background-size:1.5em 1.5em;
+    width:2rem;
+    aspect-ratio: 1/1;
+    border: 0;
+    border-radius: 100%;
+    transition: .5s;
+
+}
+
+.erase-card-btn:hover {
+    transition: .5s;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.erase-card-btn span{
+  display:none; 
 }

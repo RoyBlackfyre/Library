@@ -46,7 +46,7 @@ closeAddBook.addEventListener("click", (event)=>{
         newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
             <div class="card-content author ">${bookAuthor.value}</div>
             <div class="card-content pages">${bookPages.value}</div>
-            <button class="erase-card-btn">Erase </button>`
+            <button class="erase-card-btn"></button>`
 
         
         library.appendChild(newCard)
@@ -57,6 +57,7 @@ closeAddBook.addEventListener("click", (event)=>{
         bookPages.value = null
         modalAdd.close()
 
+        //Erase button for deleting the book card and book in the array
         let eraseButon = newCard.querySelector(`.erase-card-btn`)
         eraseButon.addEventListener("click",()=>{
             
