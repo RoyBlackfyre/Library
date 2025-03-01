@@ -46,6 +46,7 @@ closeAddBook.addEventListener("click", (event)=>{
         newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
             <div class="card-content author ">${bookAuthor.value}</div>
             <div class="card-content pages">${bookPages.value}</div>
+            <button class="read-button">Read</button>
             <button class="erase-card-btn"></button>`
 
         
