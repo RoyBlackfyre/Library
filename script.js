@@ -8,16 +8,17 @@ const cancelAddBook = document.querySelector(".cancel-add-book")
 
 let bookIdCounter = 0;
 
-function Book(title,author,pages) {
+function Book(title,author,pages,readStatus) {
     this.Title = title;
     this.Author = author;
     this.Pages = pages;
     this.Id = ++bookIdCounter;
+    this.Read = readStatus;
 
 }
 
-function addBookToLibrary(title,author,pages){
-    let book = new Book(title,author,pages)
+function addBookToLibrary(title,author,pages,readStatus){
+    let book = new Book(title,author,pages,readStatus)
     myLibrary.push(book)
 }
 
@@ -33,12 +34,13 @@ closeAddBook.addEventListener("click", (event)=>{
     const bookTitle = document.querySelector("#book-title")
     const bookAuthor = document.querySelector("#book-author")
     const bookPages = document.querySelector("#book-pages")
+    const readStatus = document.querySelector(`input[name="readStatus"]:checked`)
 
     //If the form has values create book card
-    if(bookTitle.value!="" && bookAuthor.value!="" && bookPages.value!=""){
+    if(bookTitle.value!="" && bookAuthor.value!="" && bookPages.value!="" && readStatus!=""){
         
         //Add the book to the myLibrary array and DOM
-        addBookToLibrary(bookTitle.value,bookAuthor.value,bookPages.value)
+        addBookToLibrary(bookTitle.value,bookAuthor.value,bookPages.value,readStatus.value)
         const bookId = bookIdCounter
         let newCard = document.createElement("article")
         newCard.dataset.bookId = bookId
@@ -46,7 +48,7 @@ closeAddBook.addEventListener("click", (event)=>{
         newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
             <div class="card-content author ">${bookAuthor.value}</div>
             <div class="card-content pages">${bookPages.value}</div>
-            <button class="read-button">Read</button>
+            <button class="read-button">${readStatus.value===true ? "Read" : "Not Read"}</button>
             <button class="erase-card-btn"></button>`
 
         
