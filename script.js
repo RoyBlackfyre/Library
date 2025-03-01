@@ -76,9 +76,17 @@ closeAddBook.addEventListener("click", (event)=>{
             eraseCancel.addEventListener("click",()=>{
                 modalErase.close()
             })
-            
-            
 
+        })
+
+        let readButon = newCard.querySelector(`.read-button`)
+        
+        readButon.addEventListener("click", ()=>{
+            if(readButon.innerText == "Read"){
+                readButon.innerText = "Not Read"
+            } else {
+                readButon.innerText = "Read"
+            }
         })
     }
 
