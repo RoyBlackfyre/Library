@@ -48,7 +48,7 @@ closeAddBook.addEventListener("click", (event)=>{
         newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
             <div class="card-content author ">${bookAuthor.value}</div>
             <div class="card-content pages">${bookPages.value}</div>
-            <button class="read-button">${readStatus.value===true ? "Read" : "Not Read"}</button>
+            <button class="read-button">${readStatus.value=="true" ? "Read" : "Not Read"}</button>
             <button class="erase-card-btn"></button>`
 
         
@@ -58,7 +58,9 @@ closeAddBook.addEventListener("click", (event)=>{
         bookTitle.value = null
         bookAuthor.value = null
         bookPages.value = null
+        //readStatus.checked = false;
         modalAdd.close()
+        const bookIndex = myLibrary.findIndex((book)=> book.Id === bookId)
 
         //Erase button for deleting the book card and book in the array
         let eraseButon = newCard.querySelector(`.erase-card-btn`)
@@ -70,7 +72,6 @@ closeAddBook.addEventListener("click", (event)=>{
                 library.removeChild(newCard)
 
                 //Find index of book being removed and remove it from myLibrary Array
-                const bookIndex = myLibrary.findIndex((book)=> book.Id === bookId)
                 myLibrary.splice(bookIndex,1)
                 modalErase.close()
             })
@@ -84,10 +85,14 @@ closeAddBook.addEventListener("click", (event)=>{
         let readButon = newCard.querySelector(`.read-button`)
         
         readButon.addEventListener("click", ()=>{
+
             if(readButon.innerText == "Read"){
                 readButon.innerText = "Not Read"
+                myLibrary[bookIndex].Read = "false"
             } else {
                 readButon.innerText = "Read"
+                myLibrary[bookIndex].Read = "true"
+
             }
         })
     }
