@@ -62,6 +62,7 @@ body{
 }
 
 
+
 .options button {
     background-color: var(--button);
     color:var(--menuColor);
@@ -78,6 +79,32 @@ body{
     min-height: 250px;
     max-height: 400px;
     height: 100%;
+    padding: 1em;
+    display:flex;
+    flex-direction: column;
+}
+
+.book-card .title{
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.book-card .author{
+    font-size: 90%;
+    font-style: italic;
+}
+
+.book-card .pages{
+    margin-top: auto;
+    align-self: end;
+}
+
+.book-card .book-options{
+    display:flex;
+}
+
+.book-options .erase-card-btn {
+    margin-left:auto;
 }
 
 .erase-card-btn{

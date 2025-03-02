@@ -28,6 +28,7 @@ addButton.addEventListener("click", ()=>{
     modalAdd.showModal()
 })
 
+
 closeAddBook.addEventListener("click", (event)=>{
 
     event.preventDefault()
@@ -43,13 +44,14 @@ closeAddBook.addEventListener("click", (event)=>{
         addBookToLibrary(bookTitle.value,bookAuthor.value,bookPages.value,readStatus.value)
         const bookId = bookIdCounter
         let newCard = document.createElement("article")
-        newCard.dataset.bookId = bookId
         newCard.className = `book-card`
         newCard.innerHTML= `<div class="card-content title">${bookTitle.value}</div>
             <div class="card-content author ">${bookAuthor.value}</div>
-            <div class="card-content pages">${bookPages.value}</div>
+            <div class="card-content pages">${bookPages.value} pages</div>
+            <div class="card-content book-options">
             <button class="read-button">${readStatus.value=="true" ? "Read" : "Not Read"}</button>
-            <button class="erase-card-btn"></button>`
+            <button class="erase-card-btn"></button>
+            </div>`
 
         
         library.appendChild(newCard)
