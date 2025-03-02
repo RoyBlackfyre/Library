@@ -35,6 +35,33 @@ body{
     
 }
 
+.options {
+    display:flex;
+    flex-direction: column;
+    padding:2em;
+    background-color: var(--menuColor);
+}
+
+.options > #logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family:'Times New Roman';
+    font-weight: 650;
+}
+
+#logo {
+    margin-bottom: 4em;
+}
+#logo > img {
+    width: calc(40px + 2vw);
+}
+
+#logo > p {
+    margin:0;
+}
+
+
 .options button {
     background-color: var(--button);
     color:var(--menuColor);
@@ -44,12 +71,7 @@ body{
     padding: .5em 2em .5em 2em;
 
 }
-.options {
-    display:flex;
-    flex-direction: column;
-    padding:2em;
-    background-color: var(--menuColor);
-}
+
 
 .book-card {
     background-color: var(--bookCard);

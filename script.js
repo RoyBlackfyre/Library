@@ -58,7 +58,7 @@ closeAddBook.addEventListener("click", (event)=>{
         bookTitle.value = null
         bookAuthor.value = null
         bookPages.value = null
-        //readStatus.checked = false;
+        readStatus.checked = false;
         modalAdd.close()
         const bookIndex = myLibrary.findIndex((book)=> book.Id === bookId)
 
