@@ -8,13 +8,14 @@ const cancelAddBook = document.querySelector(".cancel-add-book")
 
 let bookIdCounter = 0;
 
-function Book(title,author,pages,readStatus) {
-    this.Title = title;
-    this.Author = author;
-    this.Pages = pages;
-    this.Id = ++bookIdCounter;
-    this.Read = readStatus;
-
+class Book {
+    constructor(title,author,pages,readStatus){
+        this.Title = title;
+        this.Author = author;
+        this.Pages = pages;
+        this.Id = ++bookIdCounter;
+        this.Read = readStatus;
+    }
 }
 
 function addBookToLibrary(title,author,pages,readStatus){
